@@ -9,21 +9,24 @@
         actors: {},
         genres: [],
         privat: true,
-        showMyDataBase:  function(){
-            // Настройки приватности базы данных
-            if(personalMoveDataBase.privat){
-                console.log(personalMoveDataBase);
-            } else {
-                console.log("скрыто настройками приватности")
-            }  
-        },
+        // showMyDataBase:  function(){
+        //     // Настройки приватности базы данных
+        //     if(personalMoveDataBase.privat){
+        //         console.log(personalMoveDataBase);
+        //     } else {
+        //         console.log("скрыто настройками приватности")
+        //     }  
+        // },
 
         toggleWisibleMyDataBase: function(){
             // флаг приватности
-            if(personalMoveDataBase.privat){
-                personalMoveDataBase.privat = false
+            let flag = confirm("скрыть вашу базу данных?")
+            if(flag){
+                personalMoveDataBase.privat = true;
+                console.log("скрыто настройками приватности");
             } else{
-                personalMoveDataBase.privat = true
+                personalMoveDataBase.privat = false;
+                console.log(personalMoveDataBase);
             }
         },
 
@@ -42,7 +45,7 @@
 
         moviesCasting: function(){
             // вопросы о фильмах и оценки
-            let movies = {};
+            // let movies = {};
         for(let i = 0; i<2; i++){
                 let film = prompt("Какой фильм вы смотрели?")
             let raiting = +prompt("Какую оценку поставите? (1-10)")
@@ -69,14 +72,22 @@
                    personalMoveDataBase.genres = genre.split(", ")
                 }
             }
-            personalMoveDataBase.genres.forEach((el, i, array)=>{
+            personalMoveDataBase.genres.forEach((el, i)=>{
                 console.log(`любимый жанр ${i+1} это ${el}`)
             })
         },
+
+        start: function(){
+            this.toggleWisibleMyDataBase();
+            this.filmCounter();
+            this.moviesCasting();
+            this.writeYourGenres();
+        }
     };
 
+// personalMoveDataBase.start();
+ 
 
-        
 
 
 

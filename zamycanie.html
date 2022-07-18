@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Замыкание</title>
+</head>
+<body>
+
+
+    <script>
+   
+let users = {
+    name: "Andrew",
+    surname: "Kolmakov",
+    age: 26,
+    address: "Kaluga",
+    hobby: ["программирование", "авто", "музыка"]
+};
+
+
+let user1 ={};
+
+
+Object.setPrototypeOf(user1, users);
+
+// console.log(user1.hobby = [])
+// console.log(users.hobby)
+
+let user228 = Object.create(users);
+
+console.log(user228.name)
+
+
+
+    </script>
+    
+</body>
+</html>
